@@ -7,6 +7,8 @@ import { Product, ProductRepo } from "../repository/product.repo";
 export interface IProductService {
     listProducts(): Promise<Product[]>
     getProduct(id: number): Promise<Product>
+    newProduct(payload: Product): Promise<Product>
+    deleteProduct(id: number): Promise<string>
 }
 
 /**
@@ -26,5 +28,15 @@ export class ProductService implements IProductService {
     // get single product
     getProduct(id: number): Promise<Product> {
         return this.Product.getProduct(id);
+    }
+
+    // new product
+    newProduct(payload: Product): Promise<Product> {
+        return this.Product.newProduct(payload);
+    }
+
+    // delete product
+    deleteProduct(id: number): Promise<string> {
+        return this.Product.deleteProduct(id);
     }
 }
