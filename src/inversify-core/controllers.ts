@@ -1,0 +1,1 @@
+import '../api/products/controller/product.controller'
